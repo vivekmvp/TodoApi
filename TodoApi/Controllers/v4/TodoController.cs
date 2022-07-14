@@ -1,19 +1,17 @@
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using TodoApi.Models;
 
-namespace TodoApi.Controllers
+namespace TodoApi.Controllers.v4
 {
-    [Route("api/[controller]")] 
+    [ApiVersion("4.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class TodoController : Controller
+    public class TodoController : ControllerBase
     {
         private readonly TodoContext _context;
 
